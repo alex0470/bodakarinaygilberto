@@ -33,6 +33,16 @@ p.principal{
     font-family: "Quicksand";
 }
 
+p.principal2{
+    text-align: center;
+    font-size: 18px;
+    color: #000000;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Quicksand";
+}
+
 p.secundario{
     text-align: center;
     font-size: 18px;
