@@ -110,12 +110,56 @@ p.ntraboda{
     font-family: "Quicksand";
 }
 
+.misa1 {
+    text-align: center;
+    font-size: 20px;
+    color: #442D47;
+    font-family: "Quicksand";
+}
+
+.misa2 {
+    text-align: center;
+    font-size: 20px;
+    color: #442D47;
+    font-family: "Quicksand";
+    font-weight: bold;
+}
+
+.misa3 {
+    text-align: center;
+    font-size: 18px;
+    color: #442D47;
+    font-family: "Quicksand";
+    font-style: italic;
+}
+
+.x {
+    border: #442D47 2px solid;
+}
+
 .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.material-symbols-outlined.relleno {
+  font-size: 36px;
   font-variation-settings:
   'FILL' 1,
   'wght' 400,
   'GRAD' 0,
-  'opsz' 24
+  'opsz' 36
+}
+
+.material-symbols-outlined:not(.relleno) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 48px;
 }
 
 form {
@@ -153,4 +197,21 @@ input, select, button {
     width: 166px;
     height: auto;
     margin: 0;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #6D4874;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 12px;
+    padding: 10px 32px;
+    display: block;
+    margin: 16px auto;
 }
