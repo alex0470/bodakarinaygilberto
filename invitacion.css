@@ -41,6 +41,7 @@ h1.novia{
     color: #442D47;
     font-family: "Mea Culpa";
     font-weight: normal;
+    margin-left: 30px;
 }
 h1.y{
     text-align: center;
@@ -177,7 +178,7 @@ input, select, button {
     align-items: center;
     justify-content: space-between;
     margin-right: 0px;
-    gap: 20px;
+    gap: 10px;
 }
 .novia-con-fondo .imagen {
     width: 166px;
