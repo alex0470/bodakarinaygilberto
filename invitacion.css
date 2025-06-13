@@ -133,10 +133,6 @@ p.ntraboda{
     font-style: italic;
 }
 
-.x {
-    border: #442D47 2px solid;
-}
-
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -160,6 +156,7 @@ p.ntraboda{
     margin-right: auto;
     text-align: center;
     font-size: 48px;
+    color: #442D47;
 }
 
 form {
@@ -181,7 +178,7 @@ input, select, button {
     gap: 10px;
 }
 .novia-con-fondo .imagen {
-    width: 160px;
+    width: 155px;
     height: auto;
     margin: 0;
 }
@@ -194,7 +191,7 @@ input, select, button {
     gap: 20px;
 }
 .novio-con-fondo .imagen {
-    width: 160px;
+    width: 155px;
     height: auto;
     margin: 0;
 }
@@ -214,4 +211,87 @@ button {
     padding: 10px 32px;
     display: block;
     margin: 16px auto;
+}
+
+.pases .secundario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.pases .x {
+    border: #442D47 0.06cm solid;
+    border-radius: 6px;
+    padding: 2px 10px;
+    margin: 0 6px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #442D47;
+    background: #fff;
+}
+
+.form-estilizado {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px #442D4722;
+    padding: 32px 20px;
+    max-width: 350px;
+    margin: 32px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-estilizado label, .form-estilizado p {
+    color: #442D47;
+    font-family: "Quicksand";
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.form-estilizado input,
+.form-estilizado select {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    border: 1px solid #9E6FA3;
+    background: #FAF8FB;
+    color: #442D47;
+    margin-bottom: 16px;
+    width: 100%;
+    max-width: 260px;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.form-estilizado input:focus, .form-estilizado select:focus {
+    border: 1.5px solid #6D4874;
+}
+
+.form-estilizado button {
+    background-color: #6D4874;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-family: "Quicksand";
+    font-weight: bold;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+    max-width: 260px;
+    opacity: 0.8;
+}
+
+.form-estilizado button:disabled {
+    background: #9E6FA3;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
