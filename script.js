@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const data = {
           nombre: inputNombre.value,
           asistencia: document.getElementById("asistencia").value,
-          numPases: inputPases.value
+          numPases: inputPases.value,
+          nombresAsistentes: document.getElementById("nombresAsistentes").value
         };
 
         fetch('https://script.google.com/macros/s/AKfycbxABs0JE0S7Yz4Q4ThMG4BqKkCKBtpcuDxxkCvT0y3rhgOkCqdP8b3nkSFW0kv9ff4/exec', {
@@ -31,7 +32,9 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(res => res.text())
         .then(res => {
-          document.getElementById("mensaje").textContent = "¡Gracias por confirmar!";
+          document.getElementById("mensaje").innerHTML = "<p style='color:green;'>¡Gracias por confirmar tu asistencia!</p>";
+          btnConfirmar.disabled = true;
+          btnConfirmar.textContent = "CONFIRMADO ✅";
         })
         .catch(() => {
           document.getElementById("mensaje").textContent = "Hubo un error. Intenta más tarde.";
