@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const asistencia = document.getElementById("asistencia");
     const personasDiv = document.getElementById("personasDiv");
     const nombresDiv = document.getElementById("nombresDiv");
+    const maxPases = document.getElementById("maxPases");
     const numPases = document.getElementById("numPases");
     const nombresAsistentes = document.getElementById("nombresAsistentes");
     const btnConfirmar = document.getElementById("btnConfirmar");
@@ -107,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Botón para abrir invitación
     const btnAbrir = document.querySelector('.boton');
     if (btnAbrir) {
         btnAbrir.addEventListener('click', function() {
@@ -115,6 +115,10 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = 'invitacion.html?' + params.toString();
         });
     }
+
+    // Obtener pases de la URL
+    if (maxPases && pases) maxPases.textContent = pases;
+    if (numPases && pases) numPases.max = pases;
 
     resetForm();
 });
