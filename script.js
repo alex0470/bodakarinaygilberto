@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       console.log("Datos enviados:", data);
 
-      fetch('https://script.google.com/macros/s/AKfycby5EZ2IJr9ISvjJMJq6wrTE9xBzwLpxKd6YG3NFu9AuH3hdMAeD22IiD38ormj-CJnT/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbz1p1UNh9BMKgMvGWuQVZnhEKrQJvnq9vV17qGPIam1w7YfD6-6KNm3yashbRv55CTy/exec', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
