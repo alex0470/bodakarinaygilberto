@@ -25,45 +25,51 @@ document.addEventListener("DOMContentLoaded", function() {
         btnConfirmar.textContent = "ESPERANDO RESPUESTA";
     }
 
-    asistencia.addEventListener("change", function () {
-        if (asistencia.value === "Sí") {
-            personasDiv.style.display = "block";
-            nombresDiv.style.display = "none";
-            btnConfirmar.disabled = true;
-            btnConfirmar.textContent = "ESPERANDO RESPUESTA";
-            numPases.value = "";
-            nombresAsistentes.value = "";
-        } else if (asistencia.value === "No") {
-            personasDiv.style.display = "none";
-            nombresDiv.style.display = "none";
-            btnConfirmar.disabled = false;
-            btnConfirmar.textContent = "AVISAR";
-        } else {
-            resetForm();
-        }
-    });
+    if (asistencia) {
+        asistencia.addEventListener("change", function () {
+            if (asistencia.value === "Sí") {
+                personasDiv.style.display = "block";
+                nombresDiv.style.display = "none";
+                btnConfirmar.disabled = true;
+                btnConfirmar.textContent = "ESPERANDO RESPUESTA";
+                numPases.value = "";
+                nombresAsistentes.value = "";
+            } else if (asistencia.value === "No") {
+                personasDiv.style.display = "none";
+                nombresDiv.style.display = "none";
+                btnConfirmar.disabled = false;
+                btnConfirmar.textContent = "AVISAR";
+            } else {
+                resetForm();
+            }
+        });
+    }
 
-    numPases.addEventListener("input", function () {
-        if (numPases.value && parseInt(numPases.value) > 0) {
-            nombresDiv.style.display = "block";
-            btnConfirmar.disabled = true;
-            btnConfirmar.textContent = "ESPERANDO RESPUESTA";
-        } else {
-            nombresDiv.style.display = "none";
-            btnConfirmar.disabled = true;
-            btnConfirmar.textContent = "ESPERANDO RESPUESTA";
-        }
-    });
+    if (numPases) {
+        numPases.addEventListener("input", function () {
+            if (numPases.value && parseInt(numPases.value) > 0) {
+                nombresDiv.style.display = "block";
+                btnConfirmar.disabled = true;
+                btnConfirmar.textContent = "ESPERANDO RESPUESTA";
+            } else {
+                nombresDiv.style.display = "none";
+                btnConfirmar.disabled = true;
+                btnConfirmar.textContent = "ESPERANDO RESPUESTA";
+            }
+        });
+    }
 
-    nombresAsistentes.addEventListener("input", function () {
-        if (nombresAsistentes.value.trim().length > 0) {
-            btnConfirmar.disabled = false;
-            btnConfirmar.textContent = "CONFIRMAR ASISTENCIA";
-        } else {
-            btnConfirmar.disabled = true;
-            btnConfirmar.textContent = "ESPERANDO RESPUESTA";
-        }
-    });
+    if (nombresAsistentes) {
+        nombresAsistentes.addEventListener("input", function () {
+            if (nombresAsistentes.value.trim().length > 0) {
+                btnConfirmar.disabled = false;
+                btnConfirmar.textContent = "CONFIRMAR ASISTENCIA";
+            } else {
+                btnConfirmar.disabled = true;
+                btnConfirmar.textContent = "ESPERANDO RESPUESTA";
+            }
+        });
+    }
 
     if (form) {
         form.addEventListener("submit", function (e) {
@@ -100,6 +106,15 @@ document.addEventListener("DOMContentLoaded", function() {
             if (url) window.open(url, '_blank');
         });
     });
+
+    // Botón para abrir invitación
+    const btnAbrir = document.querySelector('.boton');
+    if (btnAbrir) {
+        btnAbrir.addEventListener('click', function() {
+            const params = new URLSearchParams(window.location.search);
+            window.location.href = 'invitacion.html?' + params.toString();
+        });
+    }
 
     resetForm();
 });
