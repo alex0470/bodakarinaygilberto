@@ -91,19 +91,18 @@ body {
     .novia-con-fondo {
         position: absolute;
         top: -40px;
-        right: -18px;
+        right: -60px; /* Más sobresalido */
         z-index: 3;
         display: flex;
         align-items: flex-start;
         justify-content: flex-end;
-        gap: 10px;
-        pointer-events: none;
         width: auto;
+        pointer-events: none;
     }
     .novia-con-fondo .imagen {
-        width: 155px;
+        width: 210px;         /* Más grande */
+        max-width: 60vw;      /* Permite crecer más en pantallas grandes */
         height: auto;
-        margin: 0;
     }
 
     .novio-con-fondo {
@@ -173,4 +172,31 @@ body {
     background: #6D4874;
     color: #fff;
     transform: scale(1.08);
+}
+
+/* RESPONSIVE: Centra la imagen en pantallas pequeñas */
+@media (max-width: 600px) {
+    .novia-con-fondo {
+        top: -20px;
+        right: 0;
+    }
+    .novia-con-fondo .imagen {
+        width: 90px;
+        max-width: 35vw;
+    }
+    .invitacion {
+        padding-right: 12px; /* Opcional: asegura espacio a la derecha */
+    }
+}
+
+/* RESPONSIVE: Ajusta el sobresalido y tamaño en móvil */
+@media (max-width: 600px) {
+    .novia-con-fondo {
+        top: -18px;
+        right: -28px;    /* Sigue sobresaliendo pero menos */
+    }
+    .novia-con-fondo .imagen {
+        width: 130px;    /* Más grande en móvil */
+        max-width: 60vw;
+    }
 }
