@@ -27,9 +27,14 @@ document.addEventListener("DOMContentLoaded", function() {
         nombresAsistentes: document.getElementById("nombresAsistentes").value
       };
 
+      console.log("Datos enviados:", data);
+
       fetch('https://script.google.com/macros/s/AKfycbx6qmVUcy5Gwjg5iM4VL9Q-85C2G-HB8DsV3PJdv5bktwJtXiwhdyeiNNq9tFAzYR6P/exec', {
-        method: 'POST',
-        body: JSON.stringify(data)
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
       })
       .then(res => res.text())
       .then(res => {
