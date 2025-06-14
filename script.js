@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
           numPases: inputPases.value
         };
 
-        fetch('https://script.google.com/macros/s/AKfycbzlkCFm9N0MyqGrM-OzKrxTFOVo_AdgOKHUreyjbm2FSaKLUHTrdSA_76YM2ADPMGUa/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbxABs0JE0S7Yz4Q4ThMG4BqKkCKBtpcuDxxkCvT0y3rhgOkCqdP8b3nkSFW0kv9ff4/exec', {
           method: 'POST',
           body: JSON.stringify(data)
         })
