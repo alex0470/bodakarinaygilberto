@@ -4,15 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const pases = params.get('pases');
 
     const nombreMostrado = document.getElementById("nombreInvitado");
-    const inputNombre = document.getElementById("nombre");
-    const inputPases = document.getElementById("numPases");
-    const spanMaxPases = document.getElementById("maxPases");
     const cantidadPases = document.getElementById("cantidadPases");
 
     if (nombreMostrado) nombreMostrado.textContent = decodeURIComponent(nombre || "Invitado Especial");
-    if (inputNombre) inputNombre.value = decodeURIComponent(nombre || "");
-    if (inputPases) inputPases.max = pases || 1;
-    if (spanMaxPases) spanMaxPases.textContent = pases || "1";
     if (cantidadPases && pases) cantidadPases.textContent = pases;
 
     const form = document.getElementById("formConfirmacion");

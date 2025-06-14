@@ -1,0 +1,140 @@
+body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #fdfdfd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    .invitacion {
+      width: 90%;
+      max-width: 400px;
+      background: #fff;
+      padding: 2em;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(68, 45, 71, 0.18), 0 1.5px 8px rgba(0,0,0,0.08);
+      text-align: center;
+      background-image: url('fondo-hojas.png');
+      background-size: cover;
+      background-position: top;
+      position: relative;
+      z-index: 2;
+    }
+
+    .subtexto {
+        text-align: center;
+        font-size: 20px;
+        color:  #6D4874;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-family: "Quicksand";
+    }
+
+    .familia {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 2em;
+    }
+
+    .boton {
+      background: #CAA9C4;
+      color: black;
+      padding: 0.8em 1.5em;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .boton:hover {
+      background: #6D4874;
+    }
+
+    h1{
+    text-align: center;
+    font-size: 40px;
+    color: #442D47;
+    font-family: "Aboreto";
+    font-weight: bolder;
+    }
+
+    .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+    }
+
+    .material-symbols-outlined.relleno {
+    font-size: 36px;
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 24
+    }
+
+    .material-symbols-outlined:not(.relleno) {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 48px;
+        color: #442D47;
+    }
+
+    .novia-con-fondo {
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        z-index: 3;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 10px;
+        pointer-events: none;
+        width: auto;
+    }
+    .novia-con-fondo .imagen {
+        width: 155px;
+        height: auto;
+        margin: 0;
+    }
+
+    .novio-con-fondo {
+        position: absolute;
+        bottom: -40px;
+        left: -40px;
+        z-index: 3;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        gap: 20px;
+        pointer-events: none;
+        width: auto;
+    }
+    .novio-con-fondo .imagen {
+        width: 155px;
+        height: auto;
+        margin: 0;
+    }
+
+    h1.novia{
+        text-align: center;
+        font-size: 69px;
+        color: #442D47;
+        font-family: "Mea Culpa";
+        font-weight: normal;
+    }
+
+    div.container3{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    margin: 30px 0;
+    }
