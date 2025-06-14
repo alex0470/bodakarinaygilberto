@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
       const data = {
         nombre: decodeURIComponent(nombre || ""),
         asistencia: document.getElementById("asistencia").value,
-        numPases: inputPases.value
+        numPases: inputPases.value,
+        nombresAsistentes: document.getElementById("nombresAsistentes").value
       };
 
       fetch('https://script.google.com/macros/s/AKfycbx6qmVUcy5Gwjg5iM4VL9Q-85C2G-HB8DsV3PJdv5bktwJtXiwhdyeiNNq9tFAzYR6P/exec', {
