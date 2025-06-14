@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       console.log("Datos enviados:", data);
 
-      fetch('https://script.google.com/macros/s/AKfycbxlYR3hlyppGStzeLC7ueKGCRxVvAG_9tlxz8cP9oAMuMytp9l07XgvUIdrJvzNvPN-/exec', {
+      fetch('https://script.google.com/macros/s/AKfycby5EZ2IJr9ISvjJMJq6wrTE9xBzwLpxKd6YG3NFu9AuH3hdMAeD22IiD38ormj-CJnT/exec', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         btnConfirmar.textContent = "CONFIRMADO ✅";
       })
       .catch(() => {
+        console.error("Error al enviar:", err);
         document.getElementById("mensaje").textContent = "Hubo un error. Intenta más tarde.";
       });
     });
