@@ -138,3 +138,39 @@ body {
     background-color: transparent;
     margin: 30px 0;
     }
+
+    .audio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.audio-label {
+    color: #442D47;
+    font-family: "Quicksand";
+    font-size: 16px;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.audio-btn {
+    background: #CAA9C4;
+    border: none;
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #442D47;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px #442D4722;
+    transition: background 0.2s, transform 0.2s;
+}
+.audio-btn:hover {
+    background: #6D4874;
+    color: #fff;
+    transform: scale(1.08);
+}

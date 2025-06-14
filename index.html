@@ -19,6 +19,15 @@
       <img src="assets/FON1.png" alt="Karina" class="imagen">
     </div>
 
+    <div class="audio-container">
+      <span class="audio-label">Escucha nuestra canción</span>
+      <button id="playPauseBtn" class="audio-btn" aria-label="Reproducir/Pausar">▶️</button>
+      <audio id="audioPlayer" style="display:none;">
+        <source src="assets/lover-official-music-video.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+
     <h1>K<span class="material-symbols-outlined relleno">favorite</span>G</h1>
     <h1 class="novia">Karina y Gilberto</h1>
     <div class="subtexto">Invitación reservada para</div>
@@ -35,5 +44,21 @@
     </div>
   </div>
   <script src="script.js"></script>
+  <script>
+    const audio = document.getElementById('audioPlayer');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    playPauseBtn.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸️';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶️';
+      }
+    });
+    audio.addEventListener('ended', function() {
+      playPauseBtn.textContent = '▶️';
+    });
+  </script>
 </body>
 </html>
