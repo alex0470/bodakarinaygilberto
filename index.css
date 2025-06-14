@@ -10,7 +10,7 @@ body {
     }
 
     .invitacion {
-      width: 80%;
+      width: 90%;
       max-width: 400px;
       background: #fff;
       padding: 2em;
@@ -102,7 +102,7 @@ body {
 
     .novio-con-fondo {
         position: fixed;
-        bottom: -500px;   /* Más abajo que el borde de la pantalla */
+        bottom: -500px;
         left: 0;
         z-index: 10;
         pointer-events: none;
@@ -110,7 +110,7 @@ body {
 
     .novia-con-fondo .imagen,
     .novio-con-fondo .imagen {
-        width: 160px;
+        width: 150px;
         height: auto;
         object-fit: contain;
         display: block;
