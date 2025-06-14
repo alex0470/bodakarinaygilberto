@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .then(res => res.text())
             .then(res => {
-                mensaje.innerHTML = "<p style='color:green;'>¡Gracias por confirmar tu asistencia!</p>";
+                mensaje.innerHTML = "<p style='color:green; text-align:center;'>¡Gracias por confirmar tu asistencia!</p>";
                 btnConfirmar.disabled = true;
                 btnConfirmar.textContent = "CONFIRMADO ✅";
             })
