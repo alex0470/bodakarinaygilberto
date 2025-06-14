@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
 
-    // --- Lógica progresiva del formulario ---
     const asistencia = document.getElementById("asistencia");
     const personasDiv = document.getElementById("personasDiv");
     const nombresDiv = document.getElementById("nombresDiv");
@@ -101,6 +100,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Al cargar, oculta campos y deshabilita botón
     resetForm();
   });
