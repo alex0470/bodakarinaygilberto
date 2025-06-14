@@ -110,7 +110,7 @@ body {
 
     .novia-con-fondo .imagen,
     .novio-con-fondo .imagen {
-        width: 180px;
+        width: 160px;
         height: auto;
         object-fit: contain;
         display: block;
