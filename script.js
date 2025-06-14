@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
           numPases: inputPases.value
         };
 
-        fetch('https://script.google.com/macros/s/TU_ID_REAL/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbz1p1UNh9BMKgMvGWuQVZnhEKrQJvnq9vV17qGPIam1w7YfD6-6KNm3yashbRv55CTy/exec', {
           method: 'POST',
           body: JSON.stringify(data)
         })
