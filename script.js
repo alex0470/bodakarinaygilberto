@@ -18,35 +18,39 @@ document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("formConfirmacion");
     if (form) {
       form.addEventListener("submit", function(e) {
-      e.preventDefault();
+        e.preventDefault();
 
-      const data = {
-        nombre: decodeURIComponent(nombre || ""),
-        asistencia: document.getElementById("asistencia").value,
-        numPases: inputPases.value,
-        nombresAsistentes: document.getElementById("nombresAsistentes").value
-      };
+        const data = {
+          nombre: decodeURIComponent(nombre || ""),
+          asistencia: document.getElementById("asistencia").value,
+          numPases: inputPases.value,
+          nombresAsistentes: document.getElementById("nombresAsistentes").value
+        };
 
-      console.log("Datos enviados:", data);
+        const formData = new URLSearchParams();
+        for (const key in data) {
+          formData.append(key, data[key]);
+        }
 
-      fetch('https://script.google.com/macros/s/AKfycbz1p1UNh9BMKgMvGWuQVZnhEKrQJvnq9vV17qGPIam1w7YfD6-6KNm3yashbRv55CTy/exec', {
-          method: 'POST',
+        console.log("Datos enviados:", Object.fromEntries(formData));
+
+        fetch("https://script.google.com/macros/s/AKfycbz1p1UNh9BMKgMvGWuQVZnhEKrQJvnq9vV17qGPIam1w7YfD6-6KNm3yashbRv55CTy/exec", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/x-www-form-urlencoded"
           },
-          body: JSON.stringify(data)
-      })
-      .then(res => res.text())
-      .then(res => {
-        document.getElementById("mensaje").innerHTML = "<p style='color:green;'>¡Gracias por confirmar tu asistencia!</p>";
-        btnConfirmar.disabled = true;
-        btnConfirmar.textContent = "CONFIRMADO ✅";
-      })
-      .catch(() => {
-        console.error("Error al enviar:", err);
-        document.getElementById("mensaje").textContent = "Hubo un error. Intenta más tarde.";
+          body: formData.toString()
+        })
+          .then(res => res.text())
+          .then(res => {
+            document.getElementById("mensaje").innerHTML = "<p style='color:green;'>¡Gracias por confirmar tu asistencia!</p>";
+            btnConfirmar.disabled = true;
+            btnConfirmar.textContent = "CONFIRMADO ✅";
+          })
+          .catch(() => {
+            document.getElementById("mensaje").textContent = "Hubo un error al confirmar. Intenta más tarde.";
+          });
       });
-    });
     }
 
     document.querySelectorAll('.btn-ubicacion').forEach(btn => {
