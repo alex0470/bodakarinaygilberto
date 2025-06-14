@@ -23,33 +23,22 @@ document.addEventListener("DOMContentLoaded", function() {
         const data = {
           nombre: decodeURIComponent(nombre || ""),
           asistencia: document.getElementById("asistencia").value,
-          numPases: inputPases.value,
-          nombresAsistentes: document.getElementById("nombresAsistentes").value
+          numPases: inputPases.value
         };
 
-        const formData = new URLSearchParams();
-        for (const key in data) {
-          formData.append(key, data[key]);
-        }
-
-        console.log("Datos enviados:", Object.fromEntries(formData));
-
-        fetch("https://script.google.com/macros/s/AKfycbz1p1UNh9BMKgMvGWuQVZnhEKrQJvnq9vV17qGPIam1w7YfD6-6KNm3yashbRv55CTy/exec", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          body: formData.toString()
+        fetch('https://script.google.com/macros/s/TU_ID_REAL/exec', {
+          method: 'POST',
+          body: JSON.stringify(data)
         })
-          .then(res => res.text())
-          .then(res => {
-            document.getElementById("mensaje").innerHTML = "<p style='color:green;'>¡Gracias por confirmar tu asistencia!</p>";
-            btnConfirmar.disabled = true;
-            btnConfirmar.textContent = "CONFIRMADO ✅";
-          })
-          .catch(() => {
-            document.getElementById("mensaje").textContent = "Hubo un error al confirmar. Intenta más tarde.";
-          });
+        .then(res => res.text())
+        .then(res => {
+          document.getElementById("mensaje").innerHTML = "<p style='color:green;'>¡Gracias por confirmar tu asistencia!</p>";
+          btnConfirmar.disabled = true;
+          btnConfirmar.textContent = "CONFIRMADO ✅";
+        })
+        .catch(() => {
+          document.getElementById("mensaje").textContent = "Hubo un error. Intenta más tarde.";
+        });
       });
     }
 
