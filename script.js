@@ -123,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Obtener pases de la URL
     if (maxPases && pases) maxPases.textContent = pases;
     if (numPases && pases) numPases.max = pases;
 
