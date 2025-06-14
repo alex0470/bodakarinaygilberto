@@ -73,24 +73,31 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if (form) {
-        form.addEventListener("submit", function (e) {
+        form.addEventListener("submit", function(e) {
             e.preventDefault();
 
-            const data = new URLSearchParams();
-            data.append("nombre", decodeURIComponent(nombre || ""));
-            data.append("asistencia", document.getElementById("asistencia").value);
-            data.append("numPases", inputPases.value);
-            data.append("nombresAsistentes", nombresAsistentes.value);
+            const params = new URLSearchParams(window.location.search);
+            const nombre = params.get('nombre') || "";
+            const asistencia = document.getElementById("asistencia").value;
+            const numPases = document.getElementById("numPases") ? document.getElementById("numPases").value : "";
+            const nombresAsistentes = document.getElementById("nombresAsistentes") ? document.getElementById("nombresAsistentes").value : "";
 
-            fetch('https://script.google.com/macros/s/AKfycbzlO1jbdj2gQzHX7j3Bb5FUY7AeEEI-4_Wld4YXCXG7GvimzVJlycICm3lbDDgatiMs/exec', {
-                method: 'POST',
+            const url = "https://script.google.com/macros/s/AKfycbzlO1jbdj2gQzHX7j3Bb5FUY7AeEEI-4_Wld4YXCXG7GvimzVJlycICm3lbDDgatiMs/exec";
+
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors",
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: data.toString()
+                body: new URLSearchParams({
+                    nombre,
+                    asistencia,
+                    numPases,
+                    nombresAsistentes
+                })
             })
-            .then(res => res.text())
-            .then(res => {
+            .then(() => {
                 mensaje.innerHTML = "<p style='color:green; text-align:center;'>¡Gracias por confirmar tu asistencia!</p>";
                 btnConfirmar.disabled = true;
                 btnConfirmar.textContent = "CONFIRMADO ✅";
