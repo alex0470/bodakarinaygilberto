@@ -88,39 +88,32 @@ body {
         color: #442D47;
     }
 
-    .novia-con-fondo {
-        position: absolute;
-        top: -40px;
-        right: -60px; /* Más sobresalido */
-        z-index: 3;
+    .novia-con-fondo, .novio-con-fondo {
+        position: fixed;
+        top: 0;
+        z-index: 10;
         display: flex;
-        align-items: flex-start;
-        justify-content: flex-end;
-        width: auto;
         pointer-events: none;
     }
-    .novia-con-fondo .imagen {
-        width: 210px;         /* Más grande */
-        max-width: 60vw;      /* Permite crecer más en pantallas grandes */
-        height: auto;
+
+    .novia-con-fondo {
+        right: 0;
     }
 
     .novio-con-fondo {
-        position: absolute;
-        bottom: -40px;
-        left: -40px;
-        z-index: 3;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        gap: 20px;
+        position: fixed;
+        bottom: -500px;   /* Más abajo que el borde de la pantalla */
+        left: 0;
+        z-index: 10;
         pointer-events: none;
-        width: auto;
     }
+
+    .novia-con-fondo .imagen,
     .novio-con-fondo .imagen {
-        width: 155px;
+        width: 180px;
         height: auto;
-        margin: 0;
+        object-fit: contain;
+        display: block;
     }
 
     h1.novia{
@@ -172,31 +165,4 @@ body {
     background: #6D4874;
     color: #fff;
     transform: scale(1.08);
-}
-
-/* RESPONSIVE: Centra la imagen en pantallas pequeñas */
-@media (max-width: 600px) {
-    .novia-con-fondo {
-        top: -20px;
-        right: 0;
-    }
-    .novia-con-fondo .imagen {
-        width: 90px;
-        max-width: 35vw;
-    }
-    .invitacion {
-        padding-right: 12px; /* Opcional: asegura espacio a la derecha */
-    }
-}
-
-/* RESPONSIVE: Ajusta el sobresalido y tamaño en móvil */
-@media (max-width: 600px) {
-    .novia-con-fondo {
-        top: -18px;
-        right: -28px;    /* Sigue sobresaliendo pero menos */
-    }
-    .novia-con-fondo .imagen {
-        width: 130px;    /* Más grande en móvil */
-        max-width: 60vw;
-    }
 }
