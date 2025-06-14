@@ -17,7 +17,6 @@ body {
       border-radius: 18px;
       box-shadow: 0 8px 32px rgba(68, 45, 71, 0.18), 0 1.5px 8px rgba(0,0,0,0.08);
       text-align: center;
-      background-image: url('fondo-hojas.png');
       background-size: cover;
       background-position: top;
       position: relative;
@@ -110,7 +109,7 @@ body {
 
     .novia-con-fondo .imagen,
     .novio-con-fondo .imagen {
-        width: 150px;
+        width: 140px;
         height: auto;
         object-fit: contain;
         display: block;
