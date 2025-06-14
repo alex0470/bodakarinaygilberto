@@ -20,15 +20,18 @@ document.addEventListener("DOMContentLoaded", function() {
       form.addEventListener("submit", function(e) {
         e.preventDefault();
 
-        const data = {
-          nombre: decodeURIComponent(nombre || ""),
-          asistencia: document.getElementById("asistencia").value,
-          numPases: inputPases.value
-        };
+        const data = new URLSearchParams();
+        data.append("nombre", decodeURIComponent(nombre || ""));
+        data.append("asistencia", document.getElementById("asistencia").value);
+        data.append("numPases", inputPases.value);
+        data.append("nombresAsistentes", nombresAsistentes.value);
 
         fetch('https://script.google.com/macros/s/AKfycbz1p1UNh9BMKgMvGWuQVZnhEKrQJvnq9vV17qGPIam1w7YfD6-6KNm3yashbRv55CTy/exec', {
           method: 'POST',
-          body: JSON.stringify(data)
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: data.toString()
         })
         .then(res => res.text())
         .then(res => {
