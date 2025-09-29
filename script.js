@@ -128,3 +128,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
     resetForm();
 });
+
+function actualizarContador() {
+  // Fecha objetivo: 20 de diciembre de 2025 a las 16:00 (4:00 p.m.)
+  const fechaObjetivo = new Date('2025-12-20T16:00:00');
+  const ahora = new Date();
+  const diferencia = fechaObjetivo - ahora;
+
+  if (diferencia > 0) {
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
+
+    document.getElementById('dias').textContent = dias.toString().padStart(2, '0');
+    document.getElementById('horas').textContent = horas.toString().padStart(2, '0');
+    document.getElementById('minutos').textContent = minutos.toString().padStart(2, '0');
+    document.getElementById('segundos').textContent = segundos.toString().padStart(2, '0');
+  } else {
+    document.getElementById('dias').textContent = '00';
+    document.getElementById('horas').textContent = '00';
+    document.getElementById('minutos').textContent = '00';
+    document.getElementById('segundos').textContent = '00';
+  }
+}
+
+// Actualiza cada segundo
+setInterval(actualizarContador, 1000);
+actualizarContador();
