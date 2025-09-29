@@ -153,6 +153,79 @@ function actualizarContador() {
   }
 }
 
-// Actualiza cada segundo
 setInterval(actualizarContador, 1000);
 actualizarContador();
+
+document.addEventListener("DOMContentLoaded", function() {
+  const slider = document.querySelector('.carrete-slider');
+  const images = document.querySelectorAll('.carrete-img');
+  let current = 0;
+  let isDragging = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let autoSlideInterval;
+
+  function showImage(index) {
+    slider.scrollTo({
+      left: index * slider.offsetWidth,
+      behavior: 'smooth'
+    });
+  }
+
+  function nextImage() {
+    current = (current + 1) % images.length;
+    showImage(current);
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextImage, 5000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  slider.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+    stopAutoSlide();
+  });
+  slider.addEventListener('mouseleave', () => {
+    isDragging = false;
+    startAutoSlide();
+  });
+  slider.addEventListener('mouseup', () => {
+    isDragging = false;
+    startAutoSlide();
+    current = Math.round(slider.scrollLeft / slider.offsetWidth);
+  });
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX);
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  slider.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+    stopAutoSlide();
+  });
+  slider.addEventListener('touchend', () => {
+    isDragging = false;
+    startAutoSlide();
+    current = Math.round(slider.scrollLeft / slider.offsetWidth);
+  });
+  slider.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX);
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  showImage(current);
+  startAutoSlide();
+});
